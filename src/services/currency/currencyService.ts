@@ -201,7 +201,7 @@ export async function fetchExchangeRates(
     }
   }
 
-  // Always include INR and USD so cross-rates are always possible
+  // Always include INR and USD so cross-rates are always done
   const symbols = Array.from(new Set([...CITY_CURRENCIES, 'INR', 'USD']))
 
   // Check cache first
