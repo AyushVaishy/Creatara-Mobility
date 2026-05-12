@@ -65,14 +65,14 @@ export function Navbar({ className }: NavbarProps) {
             <Globe className="h-4 w-4 text-primary" />
           </div>
           <div className="hidden sm:block">
-            <h1 className="gradient-text text-sm font-bold leading-none tracking-tight">
+            <h1 className="text-foreground text-sm font-bold leading-none tracking-tight">
               {APP_NAME}
             </h1>
             <p className="mt-0.5 text-[10px] text-muted-foreground/70">
               Intelligence · {CITY_COUNT} cities
             </p>
           </div>
-          <span className="gradient-text block text-sm font-bold sm:hidden">City Insights</span>
+          <span className="text-foreground block text-sm font-bold sm:hidden">City Insights</span>
         </div>
 
         {/* Search — centered */}

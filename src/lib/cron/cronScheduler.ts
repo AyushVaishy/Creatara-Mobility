@@ -26,7 +26,7 @@ function getJobMap(): Map<CronJobName, JobState> {
 // ─── Schedule definitions ─────────────────────────────────────────────────────
 
 const JOB_SCHEDULES: Record<CronJobName, string> = {
-  'city-data-collector': '*/30 * * * *', // every 30 minutes
+  'city-data-collector': '0 */6 * * *', // every 6 hours (reduced frequency due to currency caching)
 }
 
 // ─── Job runner wrapper ───────────────────────────────────────────────────────

@@ -13,9 +13,33 @@ This application is built with a **Highly Resilient Architecture** that guarante
 - **Symmetrical UI Layout**: A perfectly balanced CSS Grid layout where the world map dynamically stretches or shrinks to mathematically match the height of the contextual sidebar.
 - **Auto-Polling**: The metrics table auto-refreshes data every 30 seconds seamlessly without blocking the UI.
 
----
+## 💰 Currency API Optimization
 
-## 🛠 Tech Stack
+To minimize API costs and respect free tier limits, the application implements intelligent caching and rate limiting:
+
+### Features
+- **4-Hour Cache**: Exchange rates are cached for 4 hours to reduce API calls
+- **Rate Limiting**: Built-in rate limiter prevents exceeding free tier limits (~100 requests/hour)
+- **Fallback Rates**: Static fallback rates ensure the app works even when API is unavailable
+- **Smart Refresh**: Cron job runs every 6 hours instead of 30 minutes
+- **Monitoring**: `/api/currency/status` endpoint provides cache and rate limit statistics
+
+### Usage
+```bash
+# Update fallback rates periodically (recommended monthly)
+npm run update-fallback-rates
+
+# Check currency cache status
+curl http://localhost:3000/api/currency/status
+```
+
+### Benefits
+- **90% Reduction** in API calls (from ~48/day to ~4/day)
+- **Always Available**: App works even during API outages
+- **Cost Effective**: Minimizes usage of paid API quotas
+- **Resilient**: Graceful degradation with fallback data
+
+---
 
 - **Framework**: Next.js 15 (App Router)
 - **Language**: TypeScript
